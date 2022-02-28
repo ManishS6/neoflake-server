@@ -3,27 +3,27 @@ const auth = require('../middleware/auth');
 // create an isAdmin middleware
 const ToDo = require('../models/todo.model');
 const Item = require('../models/item.model');
-const { faker } = require('@faker-js/faker');
-router.get("/faker", async(req,res)=>{
-    for(let i=0;i<10;i++){
-        try {
-            const title = faker.company.companyName()
-            const image = faker.image.fashion()
-            const description = faker.company.catchPhrase()
-            const price = faker.datatype.number({
-                'min': 10,
-                'max': 50
-            });
-            const newItem = new Item({
-            title,image,description,price
-            });
-            const savedItem = await newItem.save();
-        } catch (err) {
-            res.json(err)
-        }
-    }
-    res.json({"created 10 entries?":"yes"});
-})
+// const { faker } = require('@faker-js/faker');
+// router.get("/faker", async(req,res)=>{
+//     for(let i=0;i<10;i++){
+//         try {
+//             const title = faker.company.companyName()
+//             const image = faker.image.fashion()
+//             const description = faker.company.catchPhrase()
+//             const price = faker.datatype.number({
+//                 'min': 10,
+//                 'max': 50
+//             });
+//             const newItem = new Item({
+//             title,image,description,price
+//             });
+//             const savedItem = await newItem.save();
+//         } catch (err) {
+//             res.json(err)
+//         }
+//     }
+//     res.json({"created 10 entries?":"yes"});
+// })
 
 router.get("/total",async (req,res)=>{
     try {
